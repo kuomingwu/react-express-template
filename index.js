@@ -1,3 +1,4 @@
+require('dotenv').config()
 import express from 'express'
 import cors from 'cors'
 import path from 'path';
@@ -10,7 +11,7 @@ const app = express();
 app.use(express.static('src'));
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json());
-if(debugMode == true){
+if(process.env.DEBUG_MODE == 'true'){
 	app.use(cors());
 }else{
 	
@@ -41,6 +42,6 @@ app.group('/' , (router)=>{
 	
 })
 
-app.listen(serverPort, function () {
-	console.log(`Example app listening on port ${serverPort}!`);
+app.listen(process.env.SERVER_PORT, function () {
+	console.log(`Example app listening on port ${process.env.SERVER_PORT}!`);
 });

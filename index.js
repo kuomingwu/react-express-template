@@ -4,7 +4,7 @@ import cors from 'cors'
 import path from 'path';
 import bodyParser  from 'body-parser';
 import helmet from 'helmet';
-import { serverPort , debugMode } from './serverConfig';
+
 require('express-group-routes');
 const session = require('express-session');
 const app = express();
